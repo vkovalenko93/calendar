@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.WebAPI", "Calendar.WebAPI\Calendar.WebAPI.csproj", "{2FCC529C-6EC4-4A8E-8130-9A7C37F6EB1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FCC529C-6EC4-4A8E-8130-9A7C37F6EB1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FCC529C-6EC4-4A8E-8130-9A7C37F6EB1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FCC529C-6EC4-4A8E-8130-9A7C37F6EB1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FCC529C-6EC4-4A8E-8130-9A7C37F6EB1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70E11BF2-6146-4768-A9E7-B40175970CC7}
+	EndGlobalSection
+EndGlobal
