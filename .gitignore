@@ -245,6 +245,9 @@ UpgradeLog*.htm
 *.mdf
 *.ldf
 
+#DataBase project files
+*.jfm
+
 # Business Intelligence projects
 *.rdl.data
 *.bim.layout
