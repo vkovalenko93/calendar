@@ -226,6 +226,7 @@ ClientBin/
 *.dbproj.schemaview
 *.pfx
 *.publishsettings
+*.jfm
 node_modules/
 bower_components/
 orleans.codegen.cs
@@ -244,9 +245,6 @@ UpgradeLog*.htm
 # SQL Server files
 *.mdf
 *.ldf
-
-#DataBase project files
-*.jfm
 
 # Business Intelligence projects
 *.rdl.data
