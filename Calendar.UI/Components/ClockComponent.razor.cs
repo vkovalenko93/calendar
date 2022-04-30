@@ -19,7 +19,7 @@ namespace Calendar.UI.Components
         
         private void SetCurrentTime(object sender, ElapsedEventArgs e)
         {
-            var currentTime = DateTime.Now;
+            var currentTime = e.SignalTime;
             HourPoint = currentTime.Hour % 12 * 30 + currentTime.Minute / 2;
             MinutePoint = currentTime.Minute * 6;
             SecondPoint = currentTime.Second * 6;
