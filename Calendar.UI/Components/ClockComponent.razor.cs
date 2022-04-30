@@ -3,22 +3,44 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Calendar.UI.Components
 {
-    public partial class ClockComponent
+    public partial class ClockComponent : IDisposable
     {
 
-        public string HourPoint { get; private set; }
-        public string MinutePoint { get; private set; }
-        public string SecondPoint { get; private set; }
+        public double HourPoint { get; set; }
+        public double MinutePoint { get; set; }
+        public double SecondPoint { get; set; }
 
-        protected override void OnInitialized()
+        private Timer _timer;
+        #region Private Methodos
+        
+        private void SetCurrentTime(object sender, ElapsedEventArgs e)
         {
-            base.OnInitialized();
-            HourPoint = $"{DateTime.Now.Hour % 12 * 30 + DateTime.Now.Minute / 2}";
-            MinutePoint = $"{DateTime.Now.Minute * 6 }";
-            SecondPoint = $"{DateTime.Now.Second * 6}";
+            var currentTime = DateTime.Now;
+            HourPoint = currentTime.Hour % 12 * 30 + currentTime.Minute / 2;
+            MinutePoint = currentTime.Minute * 6;
+            SecondPoint = currentTime.Second * 6;
+            Console.WriteLine($"{currentTime}, {HourPoint}, {MinutePoint}, {SecondPoint}");
+            InvokeAsync(StateHasChanged);
+        }
+
+        #endregion
+
+        protected async override Task OnInitializedAsync()
+        {
+            await base.OnInitializedAsync();
+
+            _timer = new Timer(1000);
+            _timer.Elapsed += SetCurrentTime;
+            _timer.Start();
+        }
+
+        public void Dispose()
+        {
+            _timer?.Dispose();
         }
     }
 }
