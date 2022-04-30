@@ -17,13 +17,13 @@ namespace Calendar.UI.Components
         private Timer _timer;
         #region Private Methodos
         
-        private void SetCurrentTime(object sender, ElapsedEventArgs e)
+        private void SetCurrentTime(DateTime time)
         {
-            var currentTime = e.SignalTime;
-            HourPoint = currentTime.Hour % 12 * 30 + currentTime.Minute / 2;
-            MinutePoint = currentTime.Minute * 6;
-            SecondPoint = currentTime.Second * 6;
-            Console.WriteLine($"{currentTime}, {HourPoint}, {MinutePoint}, {SecondPoint}");
+
+            HourPoint = time.Hour % 12 * 30 + time.Minute / 2;
+            MinutePoint = time.Minute * 6;
+            SecondPoint = time.Second * 6;
+            Console.WriteLine($"{time}, {HourPoint}, {MinutePoint}, {SecondPoint}");
             InvokeAsync(StateHasChanged);
         }
 
@@ -31,10 +31,11 @@ namespace Calendar.UI.Components
 
         protected async override Task OnInitializedAsync()
         {
+            SetCurrentTime(DateTime.Now);
             await base.OnInitializedAsync();
 
             _timer = new Timer(1000);
-            _timer.Elapsed += SetCurrentTime;
+            _timer.Elapsed += (sender, e) => SetCurrentTime(e.SignalTime);
             _timer.Start();
         }
 
