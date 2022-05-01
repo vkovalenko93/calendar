@@ -35,7 +35,7 @@ namespace Calendar.UI.Components
             await base.OnInitializedAsync();
 
             _timer = new Timer(1000);
-            _timer.Elapsed += (sender, e) => SetCurrentTime(e.SignalTime);
+            _timer.Elapsed += (sender, e) => SetCurrentTime(DateTime.Now);
             _timer.Start();
         }
 
